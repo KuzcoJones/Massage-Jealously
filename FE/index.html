@@ -12,7 +12,34 @@
     <title>Document</title>
 </head>
     <body>
-                    <div>
+                    
+      <div id="login-form" style="display:inline-block;" >
+        <h2 id="welcome-text">Welcome to Massage Jealousy</h2>
+          <form>
+              <div id="button-container" class="form-group">
+                <!-- Guest Button data-id=0 -->
+                <h3>Continue as:</h3>
+                <button data-id="0" class="btn btn-primary" type="submit">Guest</button>
+              </div>
+              <div id="provider-select-container" class="form-group">
+                <label for="exampleFormControlSelect1">Providers, select your name:</label>
+                <select class="form-control" id= "providers-container">
+                  <option data-id="1">Provider 1</option>
+                  <!-- List of Providers here -->
+                </select>
+              </div>
+            </form>
+      </div>    
+      
+
+
+
+
+
+
+
+
+      <div id="login-success" style="display: none;">
                       <div class="container-fluid parent-padding">
                         <div class="row ">
                           <div class="col-2 ">
@@ -51,7 +78,7 @@
                                 <hr class="my-4">
                                 <p id="provider-specialties">It uses utility classes for typography and spacing to space content out within the larger container.</p>
                                 <!-- Change position of Button to Lower right corner -->
-                                <a id= "edit-profile-btn" class="btn btn-primary btn-sm" href="#" role="button">Edit Profile</a>
+                                <a style="display:none;" id= "edit-profile-btn" class="btn btn-primary btn-sm" href="#" role="button">Edit Profile</a>
 
                               </div>
                             </div>
@@ -79,7 +106,9 @@
                           </div>
                         </div>
                       </div>
-                    </div>
+      </div>
+
+
    
     </body>
 </html>
