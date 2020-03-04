@@ -14,4 +14,30 @@ nav {
     background-color: #f1f1f1;
     height: 300px; /* only for demonstration, should be removed */
   }
+
+  #login-form{
+    margin: auto;
+    border: 10px solid green;
+    padding: 10px;
+    position: absolute;
+    right: 550px;
+    width: 600px;
+    transform: translate(30%, 10%);
+    /* background-image: url(); */
+    /* Find a background-image */
+  }
+
+  #button-container{
+    padding: 80px 0;
+    text-align: center;
+  }
+
+  #provider-select-container{
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  #welcome-text{
+    text-align: center;
+  }
   
