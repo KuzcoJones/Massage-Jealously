@@ -1,9 +1,12 @@
 //VARIABLES//
+const guestLoginContainer = document.getElementById('button-container')
+const providerLoginContainer = document.getElementById('provider-select-container')
+const providerLoginNames = document.getElementById('******')
 //main (sidebar present but not incl here; visible to guest and provider)
 const mainContainer = document.getElementById('*******')
 // //sidebar (main present but not incl here)
 const buttonOuterContainer = document.getElementById('specialty-btn-container')
-const buttonGroup = document.getElementById('group******')
+// const buttonGroup = document.getElementById('btn-group')
 //submenu
 const subMenu = document.getElementById('sub-menu')
 //provider main (top container within main)
@@ -27,9 +30,7 @@ let providerID = 0
 
 //FUNCTIONS//	 
 const renderLogin = () => {
-	const guestLoginContainer = document.getElementById('button-container')
-	const providerLoginContainer = document.getElementById('provider-select-container')
-	const providerLoginNames = document.getElementById('******')
+
 	getProviderNames()
 }
 //both buttons from renderLogin will call renderWelcome 
@@ -116,12 +117,12 @@ const getProviderDetails = (provider) => {
 
 }
 
-const renderProviderDetails
-	//renders single providers info
-	//if providerID = provider.id, add/edit-ProviderDetailBtn display:block, else display:none
-const editProviderDetails
-	//edit sections of inner provider div
-	//patch
+// const renderProviderDetails
+// 	//renders single providers info
+// 	//if providerID = provider.id, add/edit-ProviderDetailBtn display:block, else display:none
+// const editProviderDetails
+// 	//edit sections of inner provider div
+// 	//patch
 const getServices = () => {
 	//fetch all
 }
@@ -135,14 +136,14 @@ const renderServiceCard = (providerID) => {
 const renderServiceCards = () => {
 
 }
-const renderAddNewCardForm
-	//add new button
-	//render new card form (separate fn?)
-	//save new button
-const addServiceCard
-	//post 
-const editServiceCard
-	//patch
+// const renderAddNewCardForm
+// 	//add new button
+// 	//render new card form (separate fn?)
+// 	//save new button
+// const addServiceCard
+// 	//post 
+// const editServiceCard
+// 	//patch
 
 
 
@@ -162,7 +163,9 @@ const selectSpecialtyHandler = () => {
 }
 //provider (sidebar submenu) handler (point to fetch fn for single provider AND point to another fetch fn for services)
 const subMenuSelectionHandler = () => {
-	if (event.target.tagname === "A")
+	if (event.target.tagname === "A") {
+
+	}
 }
 //edit provider info handler (points to fetch-get fn on provider)
 //save provider info handler (points to fetch-patch fn on provider)
@@ -177,7 +180,7 @@ const subMenuSelectionHandler = () => {
 guestLoginContainer.addEventListener('click', loginHandler)
 providerLoginContainer.addEventListener('submit', loginHandler)
 //sidebar click listener (specialties)
-specialtySidebar.addEventListener('click', selectSpecialtyHandler)
+buttonOuterContainer.addEventListener('click', selectSpecialtyHandler)
 //sidebar submenu click listener (providers by specialty), render relevant provider info in top div + relevant services offered in bottom div
 subMenu.addEventListener('click', subMenuSelectionHandler)
 //listen on edit + save button clicks on top div (provider info)
