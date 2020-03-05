@@ -79,8 +79,8 @@ const renderSpecialties = (specialtiesData) => {
 }
 
 const renderSpecialty = (provider) => {
+	debugger
 	const specialtyBtn = document.createElement('button')
-	specialtyBtn.class = "btn btn-secondary dropdown-toggle"
 	specialtyBtn.innerText = provider.specialty
 	buttonGroup.appendChild(specialtyBtn)
 }
@@ -130,9 +130,11 @@ const renderProviderDetails = (provider) => {
 // 	//edit sections of inner provider div
 // 	//patch
 const getServices = () => {
-	//fetch all
+	fetch('http://localhost:3000/services')
+		.then(resp => resp.json())
+		.then(service => renderServiceCard(service))
 }
-const renderServiceCard = (providerID) => {
+const renderServiceCard = (service) => {
 	//prevent default
 	//if provider_id stored on a service matches the id of provider on display (i.e., selected on click event from sidebar)
 	//create div and create cards?
@@ -173,6 +175,7 @@ const guestLoggedInHandler = () => {
 }
 //specialty (sidebar) handler (point to fetch fn to get providers)
 const selectSpecialtyHandler = () => {
+	event.preventDefault()
 	if (event.target.tagName === "BUTTON") {
 		getProvidersBySpecialty()
 	}

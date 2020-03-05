@@ -15,7 +15,7 @@
     <body>
          
     <!-- Start of Login -->
-      <div id="login-form" style="display:block;" >
+      <div id="login-form" >
         <h2 id="welcome-text">Welcome to Massage Jealousy</h2>
           <form>
               <div id="button-container" class="form-group">
@@ -74,7 +74,7 @@
                           Click on a specialty to find an amazing provider of the service.
                       </p>
                       <!-- Change position of Button to Lower right corner -->
-                      <a style="display:none;" id= "edit-profile-btn" class="btn btn-primary btn-sm" href="#" role="button">Edit Profile</a>
+                      <a id= "edit-profile-btn" class="btn btn-primary btn-sm" href="#" role="button">Edit Profile</a>
                     </div>
                   </div>
 
@@ -88,7 +88,7 @@
 
 
       <!-- Start of Provider Page -->
-      <div id="login-success" style="display:none;">
+      <div id="login-success">
                       <div class="container-fluid parent-padding">
                         <div class="row ">
                           <div class="col-2 ">
@@ -98,7 +98,7 @@
 
                             <!-- Add Buttons here -->
                             <div class="btn-group" role="group">
-                                <button id="btnGroupDrop1" style="display:block;" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                   Massage Specialties
                                 </button>
                                 <div id="sub-menu" class="dropdown-menu" aria-labelledby="btnGroupDrop1">
@@ -111,7 +111,7 @@
                           </div>
 
                               <!-- Provider's Profile -->
-                          <div id="profile-container" class="col-10" style="display:block;">
+                          <div id="profile-container" class="col-10">
                             <div class="row profile-info border">
                               <!-- Profile Info -->
                               <div class="jumbotron">
@@ -121,21 +121,19 @@
                                   class="img-fluid" alt="Responsive image">
                                 <h1 id='provider-name' style="float:right" class="display-4">
                                   <!-- Providers Name -->
-                                  Keenan Jones
                                 </h1>
                                 <p id="provider-bio" class="lead">
                                   <!-- Providers bio -->
-                                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur incidunt maiores possimus ipsam id. Inventore incidunt, libero consectetur recusandae consequuntur doloribus voluptate ea minima harum quos eaque eligendi iste natus.
                                 </p>
                                 <hr class="my-4">
-                                <div><p id="provider-specialties">It uses utility classes for typography and spacing to space content out within the larger container.</p></div>
+                                <div><p id="provider-specialties"></p></div>
                                 <!--Note for Keenan Change position of Button to Lower right corner -->
 
 
                                 <!-- For the edit-profile-button handling switch display:none to display:inline -->
 
                                 <!-- edit Profile button below -->
-                                <a style="display:none;" id= "edit-profile-btn" class="btn btn-primary btn-sm" href="#" role="button">Edit Profile</a>
+                                <a id= "edit-profile-btn" class="btn btn-primary btn-sm" href="#" role="button">Edit Profile</a>
 
                               </div>
                             </div>
@@ -167,7 +165,7 @@
                           </div>
 
                             <!-- edit Provider's Profile -->
-                          <div id="edit-profile-container" class="col-10" style="display:none;">
+                          <div id="edit-profile-container" class="col-10">
                             <div class="row profile-info border">
                               <!-- Profile Info -->
                               <div id="profile-container" class="jumbotron">
