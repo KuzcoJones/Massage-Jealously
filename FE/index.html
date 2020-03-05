@@ -15,13 +15,13 @@
     <body>
          
     <!-- Start of Login -->
-      <div id="login-form" style="display:none;" >
+      <div id="login-form" style="display:block;" >
         <h2 id="welcome-text">Welcome to Massage Jealousy</h2>
           <form>
               <div id="button-container" class="form-group">
                 <!-- Guest Button data-id=0 -->
                 <h3>Continue as:</h3>
-                <button data-id="0" class="btn btn-primary" type="submit">Guest</button>
+                <button id="guest-btn" data-id="0" class="btn btn-primary" type="submit">Guest</button>
               </div>
               <div id="provider-select-container" class="form-group">
                 <label for="exampleFormControlSelect1">Providers, select your name:</label>
@@ -29,6 +29,8 @@
                   <option data-id="0">select</option>
                   <!-- List of Providers here -->
                 </select>
+                <!-- add submit btn -->
+               
               </div>
             </form>
       </div> 
@@ -86,7 +88,7 @@
 
 
       <!-- Start of Provider Page -->
-      <div id="login-success" style="display:block;">
+      <div id="login-success" style="display:none;">
                       <div class="container-fluid parent-padding">
                         <div class="row ">
                           <div class="col-2 ">
