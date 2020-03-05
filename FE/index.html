@@ -14,7 +14,7 @@
 </head>
     <body>
                     
-      <div id="login-form" style="display:inline-block;" >
+      <div id="login-form" style="display:none;" >
         <h2 id="welcome-text">Welcome to Massage Jealousy</h2>
           <form>
               <div id="button-container" class="form-group">
@@ -31,16 +31,55 @@
               </div>
             </form>
       </div>    
-      
+     
+      <div id="welcome-page" style="display:none">
+          <div class="container-fluid parent-padding">
+              <div class="row ">
+                <div class="col-2 ">
+                  <!-- Side Bar below-->
+                  <div id= "specialty-btn-container" class="btn-group-vertical" role="group" aria-label="Button group with nested dropdown">
+                 <div class="btn-group" role="group">
+                  <!-- Add Buttons here -->
+                  <div class="btn-group" role="group">
+                      <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Massage Specialties
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                        <a class="dropdown-item" href="#">Provider Name</a>
+                        <a class="dropdown-item" href="#">Dropdown link</a>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                </div>
 
 
+                <div class="col-10">
+                  <div class="row profile-info border">
+                    <!-- Profile Info -->
+                    <div id="welcome-container" class="jumbotron">
+                      <h1 id='provider-name' style="float:right" class="display-4">
+                        <!-- Providers Name -->
+                        Welcome to Massage Jealousy
+                      </h1>
 
+                      <hr class="my-4">
+                      <p id="provider-specialties">
+                          Click on a specialty to find an amazing provider of the service.
+                      </p>
+                      <!-- Change position of Button to Lower right corner -->
+                      <a style="display:none;" id= "edit-profile-btn" class="btn btn-primary btn-sm" href="#" role="button">Edit Profile</a>
+                    </div>
+                  </div>
 
+                    
 
+                </div>
+              </div>
+            </div>
+      </div>
 
-
-
-      <div id="login-success" style="display: none;">
+      <div id="login-success" style="display:block;">
                       <div class="container-fluid parent-padding">
                         <div class="row ">
                           <div class="col-2 ">
@@ -52,7 +91,7 @@
                                 <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                   Massage Specialties
                                 </button>
-                                <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                <div id="sub-menu" class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                                   <a class="dropdown-item" href="#">Provider Name</a>
                                   <a class="dropdown-item" href="#">Dropdown link</a>
                                 </div>
@@ -79,6 +118,8 @@
                                 <hr class="my-4">
                                 <p id="provider-specialties">It uses utility classes for typography and spacing to space content out within the larger container.</p>
                                 <!-- Change position of Button to Lower right corner -->
+
+                                <!-- For the edit-profile-button handling switch display:none to display:inline -->
                                 <a style="display:none;" id= "edit-profile-btn" class="btn btn-primary btn-sm" href="#" role="button">Edit Profile</a>
 
                               </div>
@@ -89,27 +130,32 @@
                                 <!-- Cards go here -->
                                 
                               <!-- Start of Card -->
-                              <div class="card" style="width: 18rem;">
+                              <div id="new-card-form-container" class="card" style="width: 18rem;   display:none;">
+                                <form action="" method="post">
                                   <div class="card-body">
-                                    <h5 class="card-title">Service Title</h5>
+                                      <label for="formGroupExampleInput">Service Name</label>
+                                      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Name of Massage Service" >
                                   </div>
-                                  <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">Service Description</li>
-                                  </ul>
+
                                   <div class="card-body">
-                                    <button type="button" class="btn btn-primary">EDIT</button>   <button type="button" class="btn btn-primary">SAVE</button>
+                                      <label for="new-service-description">Service Description</label>
+                                      <textarea class="form-control" id="new-service-description" placeholder="Describe Massage Service" ></textarea>
                                   </div>
+                                    <button type="submit" class="btn btn-primary">SAVE</button>
+                                </form>
                               </div>
-                                <!-- end of Card -->
-                            </div>
+                              <!-- end of Card -->
+
                             <!-- end of Service Cards -->
 
                           </div>
-                        </div>
+                          </div>
+                          
                       </div>
       </div>
 
 
       <script src="index.js" defer></script>
+
     </body>
 </html>
