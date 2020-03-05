@@ -40,4 +40,14 @@ nav {
   #welcome-text{
     text-align: center;
   }
+
+  #edit-profile-form{
+    transform: translate(-60%, -9%);
+  }
+
+  #provider-name{
+    transform: translate(-90%, -9%)
+  }
+
+
   
