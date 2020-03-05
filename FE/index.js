@@ -13,7 +13,7 @@ const buttonGroup = document.getElementById('btn-group')
 //submenu
 const subMenu = document.getElementById('sub-menu')
 //provider main (top container within main)
-const providerMainContainer = document.getElementById('*****')
+const providerMainContainer = document.getElementById('profile-container')
 //provider inner: bio, img, specialties (top container)
 const providerImgContainer = document.getElementById('*****')
 const providerBioContainer = document.getElementById('*****')
@@ -29,12 +29,15 @@ let addServiceBtn = document.getElementById('*****')
 let editServiceBtn = document.getElementById('*******')
 //provider default
 let providerID = 0
+buttonOuterContainer.style="display:none;"
 
 //FUNCTIONS//	 
 const renderLogin = () => {
+	providerMainContainer.style="display:none;"
 	loginDiv.style="display:block;"
-	buttonOuterContainer.style="display:block;"
-	buttonGroup.style="display:none;"
+
+	
+	
 
 	getProviderNames()
 }
@@ -64,12 +67,7 @@ const renderProviderName = (provider) => {
 //}
 
 const renderWelcome = () => {
-	document.querySelector('.col-2').style="display:block;"
-	loginDiv.style="display:none;"
-	providerLoginContainer.style="display:none;"
-	providerLoginDropdown.style="display:none;"
-	welcomeContainer.style="display:block;"
-	welcomeInner.style="display:block;"
+
 
 }
 
@@ -168,10 +166,13 @@ const providerLoggedInHandler = () => {
 }
 
 const guestLoggedInHandler = () => {
-	loginDiv.style="display:none;"
+	event.preventDefault()
+	if (event.target.tagName === "BUTTON") {
+		loginDiv.style="display:none;"
 	providerID = parseInt(event.target.dataset.id)
 	renderWelcome()
-	getSpecialties()
+	getSpecialties()	
+	}  
 }
 //specialty (sidebar) handler (point to fetch fn to get providers)
 const selectSpecialtyHandler = () => {
