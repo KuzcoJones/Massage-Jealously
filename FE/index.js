@@ -15,8 +15,7 @@ const subMenu = document.getElementById('sub-menu')
 //provider main (top container within main)
 const providerMainContainer = document.getElementById('profile-container')
 //provider inner: bio, img, specialties (top container)
-const providerImgContainer = document.getElementById('*****')
-const providerBioContainer = document.getElementById('*****')
+// const providerBioContainer = document.getElementById('*****')
 const providerSpecialtiesContainer = document.getElementById('*****')
 //provider details edit + add btns (top container)
 let editProviderDetailBtn = document.getElementById('*****')
@@ -29,16 +28,12 @@ let addServiceBtn = document.getElementById('*****')
 let editServiceBtn = document.getElementById('*******')
 //provider default
 let providerID = 0
-buttonOuterContainer.style="display:none;"
+// buttonOuterContainer.style="display:none;"
 
 //FUNCTIONS//	 
 const renderLogin = () => {
-	providerMainContainer.style="display:none;"
-	loginDiv.style="display:block;"
-
-	
-	
-
+	// providerMainContainer.style="display:none;"
+	// loginDiv.style="display:block;"
 	getProviderNames()
 }
 
@@ -74,15 +69,13 @@ const renderWelcome = () => {
 
 //------this section for sidebar----------//
 const getSpecialties = () => {
-	//fetch all specialties via providers, render in sidebar via li(?) element creation
 	fetch('http://localhost:3000/providers')
 		.then(resp => resp.json())
 		.then(specialtiesData => renderSpecialties(specialtiesData))
 }
 
 const renderSpecialties = (specialtiesData) => { 
-	specialtiesData.forEach(specialty => renderSpecialty(specialty))
-	//with sub-menu of providers?
+	specialtiesData.forEach(provider => renderSpecialty(provider))
 }
 
 const renderSpecialty = (provider) => {
@@ -124,7 +117,11 @@ const getProviderDetails = (provider) => {
 }
 
 const renderProviderDetails = (provider) => {
-
+	debugger
+	const bio = document.getElementById('provider-bio')
+	const providerImg = document.getElementById('provider-image')
+	bio.innerHTML = provider.bio
+	providerImg.src = provider.profile_img
 }
 	//renders single providers info
 	//if providerID = provider.id, add/edit-ProviderDetailBtn display:block, else display:none
