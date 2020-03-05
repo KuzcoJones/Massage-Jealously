@@ -13,7 +13,8 @@
     <title>Document</title>
 </head>
     <body>
-                    
+         
+    <!-- Start of Login -->
       <div id="login-form" style="display:none;" >
         <h2 id="welcome-text">Welcome to Massage Jealousy</h2>
           <form>
@@ -30,8 +31,10 @@
                 </select>
               </div>
             </form>
-      </div>    
+      </div> 
+    <!-- End of Login -->
      
+      <!-- Start of Welcome Page -->
       <div id="welcome-page" style="display:none">
           <div class="container-fluid parent-padding">
               <div class="row ">
@@ -78,7 +81,10 @@
               </div>
             </div>
       </div>
+      <!-- End of Welcome Page -->
 
+
+      <!-- Start of Provider Page -->
       <div id="login-success" style="display:block;">
                       <div class="container-fluid parent-padding">
                         <div class="row ">
@@ -86,6 +92,7 @@
                             <!-- Side Bar below-->
                             <div id= "specialty-btn-container" class="btn-group-vertical" role="group" aria-label="Button group with nested dropdown">
                            <div class="btn-group" role="group">
+
                             <!-- Add Buttons here -->
                             <div class="btn-group" role="group">
                                 <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -100,32 +107,37 @@
                             </div>
                           </div>
 
-
-                          <div class="col-10">
+                              <!-- Provider's Profile -->
+                          <div class="col-10" style="display:block;">
                             <div class="row profile-info border">
                               <!-- Profile Info -->
                               <div id="profile-container" class="jumbotron">
-                                  <!-- <img id='provider-image' style="max-height:80%; max-width: 25%;"
-                                  src='Provider-img-Url';
+                                  <img id='provider-image' style="max-height:80%; max-width: 25%;"
+                                  src='https://images.pexels.com/photos/56884/wellness-massage-relax-relaxing-56884.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260';
                                   
-                                  class="img-fluid" alt="Responsive image"> -->
+                                  class="img-fluid" alt="Responsive image">
                                 <h1 id='provider-name' style="float:right" class="display-4">
                                   <!-- Providers Name -->
+                                  Keenan Jones
                                 </h1>
                                 <p id="provider-bio" class="lead">
                                   <!-- Providers bio -->
+                                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur incidunt maiores possimus ipsam id. Inventore incidunt, libero consectetur recusandae consequuntur doloribus voluptate ea minima harum quos eaque eligendi iste natus.
                                 </p>
                                 <hr class="my-4">
-                                <p id="provider-specialties">It uses utility classes for typography and spacing to space content out within the larger container.</p>
-                                <!-- Change position of Button to Lower right corner -->
+                                <div><p id="provider-specialties">It uses utility classes for typography and spacing to space content out within the larger container.</p></div>
+                                <!--Note for Keenan Change position of Button to Lower right corner -->
+
 
                                 <!-- For the edit-profile-button handling switch display:none to display:inline -->
+
+                                <!-- edit Profile button below -->
                                 <a style="display:none;" id= "edit-profile-btn" class="btn btn-primary btn-sm" href="#" role="button">Edit Profile</a>
 
                               </div>
                             </div>
 
-                              <!-- Start of Service Cards -->
+                              <!-- Start of Service Container -->
                             <div id='service-card container' class="row">
                                 <!-- Cards go here -->
                                 
@@ -150,12 +162,77 @@
 
                           </div>
                           </div>
+
+                            <!-- edit Provider's Profile -->
+                          <div id="edit-profile-container" class="col-10" style="display:none;">
+                            <div class="row profile-info border">
+                              <!-- Profile Info -->
+                              <div id="profile-container" class="jumbotron">
+                                     <img id='provider-image' style="max-height:80%; max-width: 25%;"
+                                  src='https://images.pexels.com/photos/56884/wellness-massage-relax-relaxing-56884.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260';
+                                  
+                                  class="img-fluid" alt="Responsive image">
+
+                                <form id="edit-profile-form" style="float:right " action="" method="patch">
+                                <h1 id='provider-name'  class="display-4">
+                                  <!-- Providers Name -->
+                                  <div class="form-group">
+                                      <label for="formGroupExampleInput">Provider Name</label>
+                                      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Name">
+                                  </div>
+                                </h1>
+                                <div id="provider-bio" class="lead">
+                                  <!-- Providers bio -->
+                                  <label for="formGroupExampleInput">Provider Bio</label>
+                                  <textarea class="form-control" id="Textarea" placeholder="Enter Bio" ></textarea>
+                                </div>
+                                <hr class="my-4">
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Specialty</label>
+                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Specialty">
+                                  </div>
+                                <!--Note for Keenan Change position of Button to Lower right corner -->
+
+
+                                <!-- For the edit-profile-button handling switch display:none to display:inline -->
+
+                                <!-- Submit button -->
+                                <button style="display:inline;" id="save-profile-btn" type="submit" class="btn btn-primary">Save Profile</button>
+                                  </form>
+                              </div>
+                            </div>
+
+                              <!-- Start of Service Container -->
+                            <div id='service-card container' class="row">
+                                <!-- Cards go here -->
+                                
+                              <!-- Start of Card -->
+                              <div id="new-card-form-container" class="card" style="width: 18rem;   display:none;">
+                                <form action="" method="post">
+                                  <div class="card-body">
+                                      <label for="formGroupExampleInput">Service Name</label>
+                                      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Name of Massage Service" >
+                                  </div>
+
+                                  <div class="card-body">
+                                      <label for="new-service-description">Service Description</label>
+                                      <textarea class="form-control" id="new-service-description" placeholder="Describe Massage Service" ></textarea>
+                                  </div>
+                                    <button type="submit" class="btn btn-primary">SAVE</button>
+                                </form>
+                              </div>
+                              <!-- end of Card -->
+
+                            <!-- end of Service Cards -->
+
+                          </div>
+                          </div>
+
                           
                       </div>
       </div>
-
+    <!-- End of Providers Page -->
 
       <script src="index.js" defer></script>
-
     </body>
 </html>
