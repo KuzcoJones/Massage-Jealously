@@ -4,7 +4,7 @@ class CreateProviders < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :bio
       t.string :profile_img
-      t.string :specialties
+      t.string :specialty
 
       t.timestamps
     end

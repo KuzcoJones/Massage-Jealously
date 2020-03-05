@@ -78,7 +78,7 @@
             </div>
       </div>
 
-      <div id="login-success" style="display: block;">
+      <div id="login-success" style="display:block;">
                       <div class="container-fluid parent-padding">
                         <div class="row ">
                           <div class="col-2 ">
@@ -117,6 +117,8 @@
                                 <hr class="my-4">
                                 <p id="provider-specialties">It uses utility classes for typography and spacing to space content out within the larger container.</p>
                                 <!-- Change position of Button to Lower right corner -->
+
+                                <!-- For the edit-profile-button handling switch display:none to display:inline -->
                                 <a style="display:none;" id= "edit-profile-btn" class="btn btn-primary btn-sm" href="#" role="button">Edit Profile</a>
 
                               </div>
@@ -127,25 +129,33 @@
                                 <!-- Cards go here -->
                                 
                               <!-- Start of Card -->
-                              <div class="card" style="width: 18rem;">
+                              <div id="new-card-form-container" class="card" style="width: 18rem;   display:none;">
+                                <form action="" method="post">
                                   <div class="card-body">
-                                    <h5 class="card-title">Service Title</h5>
+                                      <label for="formGroupExampleInput">Service Name</label>
+                                      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Name of Massage Service" >
                                   </div>
-                                  <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">Service Description</li>
-                                  </ul>
+
                                   <div class="card-body">
-                                    <button type="button" class="btn btn-primary">EDIT</button>   <button type="button" class="btn btn-primary">SAVE</button>
+                                      <label for="new-service-description">Service Description</label>
+                                      <textarea class="form-control" id="new-service-description" placeholder="Describe Massage Service" ></textarea>
                                   </div>
+                                    <button type="submit" class="btn btn-primary">SAVE</button>
+                                </form>
                               </div>
-                                <!-- end of Card -->
-                            </div>
+                              <!-- end of Card -->
+
                             <!-- end of Service Cards -->
 
                           </div>
-                        </div>
+                          </div>
+                          
                       </div>
       </div>
+
+
+
+
 
 
    
