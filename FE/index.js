@@ -1,12 +1,15 @@
 //VARIABLES//
+const loginDiv = document.getElementById('login-form')
 const guestLoginContainer = document.getElementById('button-container')
 const providerLoginContainer = document.getElementById('provider-select-container')
-const providerLoginNames = document.getElementById('******')
+const providerLoginDropdown = document.getElementById('providers-container')
 //main (sidebar present but not incl here; visible to guest and provider)
-const mainContainer = document.getElementById('*******')
+// const mainContainer = document.getElementById('*******')
+const welcomeContainer = document.getElementById('welcome-page')
+const welcomeInner = document.getElementById('login-success')
 // //sidebar (main present but not incl here)
 const buttonOuterContainer = document.getElementById('specialty-btn-container')
-// const buttonGroup = document.getElementById('btn-group')
+const buttonGroup = document.getElementById('btn-group')
 //submenu
 const subMenu = document.getElementById('sub-menu')
 //provider main (top container within main)
@@ -27,49 +30,54 @@ let editServiceBtn = document.getElementById('*******')
 //provider default
 let providerID = 0
 
-
 //FUNCTIONS//	 
 const renderLogin = () => {
+	loginDiv.style="display:block;"
+	buttonOuterContainer.style="display:block;"
+	buttonGroup.style="display:none;"
 
 	getProviderNames()
 }
-//both buttons from renderLogin will call renderWelcome 
-//log in 'confirmation' button will re-set providerID (default 0) to id corresponding to provider chosen
 
-//----this section for login dropdown-----//
+//----this section for login dropdown, immediately rendered-----//
 const getProviderNames = () => {
 	//fetch all provider data for login scrn
-	fetch('providers url***')
-		.then(resp => resp.json)
+	fetch('http://localhost:3000/providers')
+		.then(resp => resp.json())
 		.then(providersData => renderProviderNames(providersData))
 }
 
 const renderProviderNames = (providersData) => {
-	providersData.forEach(provider => renderProviderNames(provider))
+	providersData.forEach(provider => renderProviderName(provider))
 }
 
 const renderProviderName = (provider) => {
-	const providerLoginDropdown = document.getElementById('login dropdown element')
-	const possibleSelection = document.createElement('one selectable area of dropdown')
-	possibleSelection.innerHTML = provider.name
-	providerLoginDropdown.appendChild(possibleSelection)
+	providerOption = document.createElement('option')
+	providerOption.innerHTML = provider.name
+	providerOption.dataset.id = provider.id
+	providerLoginDropdown.appendChild(providerOption)
 }
 
+
 //-------render welcome, then render main with provider; OR render main with welcome, then main with provider???--------------//
-//////////********TBD**********/
 // const render main = () => {
 //}
 
-// const renderWelcome = () => {
-// 	//display welcome message (create elements?)
-// 	// mainContainer.append(elements created above?)	
-// }
+const renderWelcome = () => {
+	document.querySelector('.col-2').style="display:block;"
+	loginDiv.style="display:none;"
+	providerLoginContainer.style="display:none;"
+	providerLoginDropdown.style="display:none;"
+	welcomeContainer.style="display:block;"
+	welcomeInner.style="display:block;"
+
+}
 
 
 //------this section for sidebar----------//
 const getSpecialties = () => {
 	//fetch all specialties via providers, render in sidebar via li(?) element creation
-	fetch('providers****url')
+	fetch('http://localhost:3000/providers')
 		.then(resp => resp.json())
 		.then(specialtiesData => renderSpecialties(specialtiesData))
 }
@@ -83,8 +91,7 @@ const renderSpecialty = (provider) => {
 	const specialtyBtn = document.createElement('button')
 	specialtyBtn.class = "btn btn-secondary dropdown-toggle"
 	specialtyBtn.innerText = provider.specialty
-	
-	//const listItem = document.createElement('p'?)
+	buttonGroup.appendChild(specialtyBtn)
 }
 
 
@@ -92,7 +99,7 @@ const renderSpecialty = (provider) => {
 const getProvidersBySpecialty = () => {
 	//don't work on this too much yet -- sub-menu for sidebar**** //
 	fetch('http://localhost:3000/providers')
-		.then(resp => resp.json)
+		.then(resp => resp.json())
 		.then(providersData => renderProvidersBySpecialty(providersData))
 }
 
@@ -114,12 +121,16 @@ const renderProviderBySpecialty = (provider) => {
 const getProviderDetails = (provider) => {
 	provider.id = providerID
 	fetch('http://localhost:3000/providers/' + provider.id)
-
+		.then(resp => resp.json())
+		.then(provider => renderProviderDetails(provider))
 }
 
-// const renderProviderDetails
-// 	//renders single providers info
-// 	//if providerID = provider.id, add/edit-ProviderDetailBtn display:block, else display:none
+const renderProviderDetails = (provider) => {
+
+}
+	//renders single providers info
+	//if providerID = provider.id, add/edit-ProviderDetailBtn display:block, else display:none
+
 // const editProviderDetails
 // 	//edit sections of inner provider div
 // 	//patch
@@ -148,12 +159,19 @@ const renderServiceCards = () => {
 
 
 //EVENT HANDLERS//
-//login handler- render welcome div and sidebar; set provider ID in background
-const loginHandler = () => {
-	//set providerID to ID of provider name that was clicked
+
+const providerLoggedInHandler = () => {
+	loginDiv.style="display:none;"
 	providerID = event.target.dataset.id
+	renderWelcome()
 	getSpecialties()
-	//display:none on login div ('turn off') + display:block on main AND sidebar ('turn both on')
+}
+
+const guestLoggedInHandler = () => {
+	loginDiv.style="display:none;"
+	providerID = parseInt(event.target.dataset.id)
+	renderWelcome()
+	getSpecialties()
 }
 //specialty (sidebar) handler (point to fetch fn to get providers)
 const selectSpecialtyHandler = () => {
@@ -177,8 +195,8 @@ const subMenuSelectionHandler = () => {
 
 //EVENT LISTENERS//
 //login buttons click listener (guest AND provider)
-guestLoginContainer.addEventListener('click', loginHandler)
-providerLoginContainer.addEventListener('submit', loginHandler)
+guestLoginContainer.addEventListener('click', guestLoggedInHandler)
+providerLoginDropdown.addEventListener('submit', providerLoggedInHandler)
 //sidebar click listener (specialties)
 buttonOuterContainer.addEventListener('click', selectSpecialtyHandler)
 //sidebar submenu click listener (providers by specialty), render relevant provider info in top div + relevant services offered in bottom div
@@ -189,7 +207,7 @@ subMenu.addEventListener('click', subMenuSelectionHandler)
 
 
 //INVOKED FNs//
-renderLogin 
+renderLogin()
 //(fetch provider names for login)
 
 getProviderNames()
