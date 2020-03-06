@@ -1,4 +1,5 @@
 //VARIABLES//
+// const mainBody = document.querySelector('body')
 const loginDiv = document.getElementById('login-form')
 const guestLoginContainer = document.getElementById('button-container')
 const providerLoginContainer = document.getElementById('provider-select-container')
@@ -66,8 +67,8 @@ const renderProviderName = (provider) => {
 // const render main = () => {
 //}
 
-const renderWelcome = () => {
-
+const renderWelcome = (welcomeContainer) => {
+	
 
 }
 

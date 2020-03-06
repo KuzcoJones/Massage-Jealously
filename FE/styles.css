@@ -2,17 +2,19 @@
 nav {
     float: left;
     width: 30%;
-    height: 100px; /* only for demonstration, should be removed */
-    background: #ccc;
+    height: 100px; 
+    /* only for demonstration, should be removed */
+    background: #ccc; 
     padding: 20px;
-  }
+  };
 
   header {
     float: right;
     padding: 20px;
     width: 70%;
     background-color: #f1f1f1;
-    height: 300px; /* only for demonstration, should be removed */
+    height: 300px; 
+    /* only for demonstration, should be removed */
   }
 
   #login-form{
@@ -23,7 +25,7 @@ nav {
     right: 550px;
     width: 600px;
     transform: translate(30%, 10%);
-    /* background-image: url(); */
+    background-image: url();
     /* Find a background-image */
   }
 
@@ -45,9 +47,9 @@ nav {
     transform: translate(-60%, -9%);
   }
 
-  #provider-name{
+  /* #provider-name{
     transform: translate(-90%, -9%)
-  }
+  } */
 
 
   

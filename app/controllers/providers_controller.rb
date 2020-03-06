@@ -6,7 +6,7 @@ class ProvidersController < ApplicationController
 
     def show 
         provider = Provider.find_by(id: params[:id])
-        render json: provider.slice(:name, :bio, :profile_img, :specialties)
+        render json: provider, include: :services
     end
 
     def new 
